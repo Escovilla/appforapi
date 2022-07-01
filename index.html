@@ -1,0 +1,36 @@
+<html>
+<head></head>
+
+<body>
+  
+  <script type="text/javascript" src="socket.io.js"></script>
+  
+  <script>
+ 
+
+    try{
+    console.log("msg")
+    
+    var socket = io("testappnani.herokuapp.com" ,{ transports: ["websocket"] }
+    );
+
+    socket.on('message', function(msg){
+      console.log(msg)
+    });
+
+    let count =0
+    setInterval(() => {
+      count++
+      socket.emit('messaged',count)
+     
+    }, 100);
+
+
+  }catch (error){
+    alert(error)
+  };
+
+  
+  </script>
+</body>
+</html>
