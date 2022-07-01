@@ -4,10 +4,10 @@
 <body>
   
   <script type="text/javascript" src="socket.io.js"></script>
-  
+  <p id="server-time"></p>
   <script>
  
-
+    let count =0
     try{
     console.log("msg")
     
@@ -17,8 +17,10 @@
     socket.on('message', function(msg){
       console.log(msg)
     });
-
-    let count =0
+    el = document.getElementById('server-time');
+    el.innerHTML = 'Message ' + count;
+       
+    
     setInterval(() => {
       count++
       socket.emit('messaged',count)
