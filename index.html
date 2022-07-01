@@ -16,9 +16,10 @@
 
     socket.on('message', function(msg){
       console.log(msg)
+      el = document.getElementById('server-time');
+      el.innerHTML = 'Message ' + msg;
     });
-    el = document.getElementById('server-time');
-    el.innerHTML = 'Message ' + count;
+  
        
     
     setInterval(() => {
